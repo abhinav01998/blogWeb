@@ -1,10 +1,10 @@
 package com.techblogs.blogWeb.repository;
 
-import com.techblogs.blogWeb.entity.Post;
+import com.techblogs.blogWeb.entity.Blog;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface PostRepository extends JpaRepository<Post, Long> {
+public interface BlogRepository extends JpaRepository<Blog, Long> {
 
 }

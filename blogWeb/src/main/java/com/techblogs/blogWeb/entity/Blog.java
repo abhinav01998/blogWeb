@@ -8,7 +8,7 @@ import java.util.List;
 
 @Entity
 @Data
-public class Post {
+public class Blog {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long Id;
@@ -21,8 +21,16 @@ public class Post {
     private String img;
     private Date date;
 
-    private int like;
+    private int likes;
     private int views;
 
     private List<String> hashtags;
+
+    public void setLikeCount(int i) {
+        this.likes = 0;
+    }
+
+    public void setViewCount(int i) {
+        this.views = 0;
+    }
 }
