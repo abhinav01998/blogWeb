@@ -24,8 +24,6 @@ public class Blog {
     private int likes;
     private int views;
 
-    private List<String> hashtags;
-
     public void setLikeCount(int i) {
         this.likes = 0;
     }

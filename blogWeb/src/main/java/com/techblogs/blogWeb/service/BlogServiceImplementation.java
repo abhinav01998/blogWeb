@@ -7,6 +7,7 @@ import com.techblogs.blogWeb.repository.BlogRepository;
 
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 public class BlogServiceImplementation implements BlogService {
@@ -20,6 +21,9 @@ public class BlogServiceImplementation implements BlogService {
         blog.setDate(new Date());
 
         return postRepo.save(blog);
+    }
 
+    public List<Blog> getAllBlogs() {
+        return postRepo.findAll();
     }
 }
