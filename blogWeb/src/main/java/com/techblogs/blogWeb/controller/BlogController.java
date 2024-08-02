@@ -2,6 +2,7 @@ package com.techblogs.blogWeb.controller;
 
 import com.techblogs.blogWeb.entity.Blog;
 import com.techblogs.blogWeb.service.BlogService;
+import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -34,6 +35,16 @@ public class BlogController {
             return ResponseEntity.status(HttpStatus.OK).body(blogService.getAllBlogs());
         } catch (Exception e) {
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).build();
+        }
+    }
+
+    @GetMapping("/{blogId}")
+    public ResponseEntity<?> getBlogById(@PathVariable Long blogId) {
+        try {
+            Blog blog = blogService.getBlogById(blogId);
+            return ResponseEntity.ok(blog);
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
 }

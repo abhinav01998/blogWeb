@@ -24,11 +24,4 @@ public class Blog {
     private int likes;
     private int views;
 
-    public void setLikeCount(int i) {
-        this.likes = 0;
-    }
-
-    public void setViewCount(int i) {
-        this.views = 0;
-    }
 }

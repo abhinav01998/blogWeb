@@ -8,4 +8,6 @@ public interface BlogService {
     Blog addBlog(Blog blog);
 
     List<Blog> getAllBlogs();
+
+    Blog getBlogById(Long postId);
 }
