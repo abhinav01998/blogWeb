@@ -10,4 +10,6 @@ public interface BlogService {
     List<Blog> getAllBlogs();
 
     Blog getBlogById(Long postId);
+
+    void likeBlog(Long blogId);
 }

@@ -39,4 +39,15 @@ public class BlogServiceImplementation implements BlogService {
             throw new EntityNotFoundException("Blog not found");
         }
     }
+
+    public void likeBlog(Long blogId) {
+        Optional<Blog> optionalPost = postRepo.findById(blogId);
+        if(optionalPost.isPresent()) {
+            Blog blog = optionalPost.get();
+            blog.setLikes(blog.getLikes() + 1);
+            postRepo.save(blog);
+        } else {
+            throw new EntityNotFoundException("Blog with id: " + blogId + " not found");
+        }
+    }
 }

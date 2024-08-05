@@ -47,4 +47,14 @@ public class BlogController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+
+    @PutMapping("/{blogId}/like")
+    public ResponseEntity<?> likeBlog(@PathVariable Long blogId) {
+        try {
+            blogService.likeBlog(blogId);
+            return ResponseEntity.ok(new String[]{"Blog Like Received!!!"});
+        } catch (EntityNotFoundException e) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
 }
